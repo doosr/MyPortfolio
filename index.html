@@ -33,6 +33,124 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+	
+	<style>
+		/* Animation de mots */
+		.word-animation-container {
+			position: relative;
+			height: 1.2em;
+			overflow: hidden;
+			margin: 0 auto;
+			text-align: center;
+		}
+		
+		.word-animation {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			opacity: 0;
+			animation: wordAnimation 16s linear infinite 0s;
+		}
+		
+		.word-animation:nth-child(2) {
+			animation-delay: 4s;
+		}
+		
+		.word-animation:nth-child(3) {
+			animation-delay: 8s;
+		}
+		
+		.word-animation:nth-child(4) {
+			animation-delay: 12s;
+		}
+		
+		@keyframes wordAnimation {
+			0% { opacity: 0; transform: translateY(-30px); }
+			3% { opacity: 1; transform: translateY(0px); }
+			20% { opacity: 1; transform: translateY(0px); }
+			23% { opacity: 0; transform: translateY(30px); }
+			100% { opacity: 0; }
+		}
+		
+		/* Style Mac pour la section de test */
+		.mac-style-section {
+			background: #f5f5f7;
+			border-radius: 12px;
+			padding: 30px;
+			margin: 40px 0;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+			border: 1px solid #e0e0e0;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.mac-style-section::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 30px;
+			background: #e0e0e0;
+			border-radius: 10px 10px 0 0;
+		}
+		
+		.mac-style-section h2 {
+			color: #333;
+			position: relative;
+			padding-top: 10px;
+		}
+		
+		.mac-buttons {
+			position: absolute;
+			top: 8px;
+			left: 15px;
+			display: flex;
+			gap: 8px;
+		}
+		
+		.mac-button {
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+		}
+		
+		.mac-button.close { background: #ff5f57; }
+		.mac-button.minimize { background: #febc2e; }
+		.mac-button.maximize { background: #28c840; }
+		
+		/* Animation pour la section de test */
+		.animated-element {
+			width: 100px;
+			height: 100px;
+			background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+			border-radius: 12px;
+			margin: 20px auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-weight: bold;
+			animation: pulse 2s infinite;
+		}
+		
+		@keyframes pulse {
+			0% { transform: scale(1); }
+			50% { transform: scale(1.1); }
+			100% { transform: scale(1); }
+		}
+		
+		/* Animation des barres de compétences */
+		.progress-bar {
+			animation: progressAnimation 1.5s ease-out forwards;
+			width: 0;
+		}
+		
+		@keyframes progressAnimation {
+			0% { width: 0; }
+			100% { width: var(--target-width); }
+		}
+	</style>
 
 	</head>
 	<body>
@@ -50,9 +168,22 @@
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
 							<div class="profile-thumb" style="background: url(images/user.jpg);"></div>
-							<h1><span>dawserbelgacem</span></h1>
-							<h3><span>Embedded Systems Engineer / IoT Developer</span></h3>
-
+							
+							<!-- Animation de mots ajoutée ici -->
+							<div class="word-animation-container">
+								<h1 class="word-animation">dawserbelgacem</h1>
+								<h1 class="word-animation">Embedded Systems</h1>
+								<h1 class="word-animation">IoT Developer</h1>
+								<h1 class="word-animation">Software Engineer</h1>
+							</div>
+							
+							<div class="word-animation-container">
+								<h3 class="word-animation">Embedded Systems Engineer / IoT Developer</h3>
+								<h3 class="word-animation">C/C++ & Python Specialist</h3>
+								<h3 class="word-animation">Raspberry Pi & ESP32</h3>
+								<h3 class="word-animation">Azure IoT & Flutter</h3>
+							</div>
+							
 							<p>
 								<ul class="fh5co-social-icons">
 									<li><a href="https://twitter.com/dawserbelgacem"><i class="icon-twitter2"></i></a></li>
@@ -68,6 +199,34 @@
 			</div>
 		</div>
 	</header>
+
+	<!-- Section de test ajoutée -->
+	<div class="container">
+		<div class="mac-style-section">
+			<div class="mac-buttons">
+				<div class="mac-button close"></div>
+				<div class="mac-button minimize"></div>
+				<div class="mac-button maximize"></div>
+			</div>
+			<h2>Animation Test Area</h2>
+			<p>This section demonstrates the animation capabilities added to the portfolio. You can use this area to test and preview animations.</p>
+			
+			<div class="row">
+				<div class="col-md-4 text-center">
+					<h3>Pulse Animation</h3>
+					<div class="animated-element">Pulse</div>
+				</div>
+				<div class="col-md-4 text-center">
+					<h3>Rotation</h3>
+					<div class="animated-element" style="animation: rotation 4s infinite linear;">Rotate</div>
+				</div>
+				<div class="col-md-4 text-center">
+					<h3>Bounce</h3>
+					<div class="animated-element" style="animation: bounce 2s infinite ease-in-out;">Bounce</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div id="fh5co-about" class="animate-box">
 		<div class="container">
@@ -215,7 +374,7 @@
 							<h3><span class="name-left">HTML5/CSS3</span><span class="value-right">95%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:95%">
+									aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="95%">
 								</div>
 							</div>
 						</div>
@@ -223,7 +382,7 @@
 							<h3><span class="name-left">C</span><span class="value-right">90%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="90%">
 								</div>
 							</div>
 						</div>
@@ -231,7 +390,7 @@
 							<h3><span class="name-left">Python</span><span class="value-right">85%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
+									aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="85%">
 								</div>
 							</div>
 						</div>
@@ -239,7 +398,7 @@
 							<h3><span class="name-left">JavaScript</span><span class="value-right">80%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+									aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="80%">
 								</div>
 							</div>
 						</div>
@@ -247,7 +406,7 @@
 							<h3><span class="name-left">C++</span><span class="value-right">70%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+									aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="70%">
 								</div>
 							</div>
 						</div>
@@ -255,7 +414,7 @@
 							<h3><span class="name-left">Java</span><span class="value-right">75%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
+									aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="75%">
 								</div>
 							</div>
 						</div>
@@ -266,7 +425,7 @@
 							<h3><span class="name-left">Embedded Systems</span><span class="value-right">90%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="90%">
 								</div>
 							</div>
 						</div>
@@ -274,7 +433,7 @@
 							<h3><span class="name-left">IoT Development</span><span class="value-right">85%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
+									aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="85%">
 								</div>
 							</div>
 						</div>
@@ -282,7 +441,7 @@
 							<h3><span class="name-left">Machine Learning</span><span class="value-right">80%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+									aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="80%">
 								</div>
 							</div>
 						</div>
@@ -290,7 +449,7 @@
 							<h3><span class="name-left">Arduino</span><span class="value-right">90%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="90%">
 								</div>
 							</div>
 						</div>
@@ -298,7 +457,7 @@
 							<h3><span class="name-left">Azure IoT</span><span class="value-right">75%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
+									aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="75%">
 								</div>
 							</div>
 						</div>
@@ -306,7 +465,7 @@
 							<h3><span class="name-left">Raspberry Pi</span><span class="value-right">90%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="90%">
 								</div>
 							</div>
 						</div>
@@ -314,7 +473,7 @@
 							<h3><span class="name-left">Flutter</span><span class="value-right">80%</span></h3>
 							<div class="progress">
 								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+									aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:0" data-width="80%">
 								</div>
 							</div>
 						</div>
@@ -438,6 +597,50 @@
 	
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	
+	<script>
+		// Animations supplémentaires
+		document.addEventListener('DOMContentLoaded', function() {
+			// Animation de rotation
+			const style = document.createElement('style');
+			style.innerHTML = `
+				@keyframes rotation {
+					0% { transform: rotate(0deg); }
+					100% { transform: rotate(360deg); }
+				}
+				
+				@keyframes bounce {
+					0%, 100% { transform: translateY(0); }
+					50% { transform: translateY(-20px); }
+				}
+			`;
+			document.head.appendChild(style);
+			
+			// Animation des barres de compétences
+			const progressBars = document.querySelectorAll('.progress-bar');
+			progressBars.forEach(bar => {
+				const width = bar.getAttribute('data-width');
+				bar.style.setProperty('--target-width', width);
+				bar.classList.add('progress-bar');
+			});
+			
+			// Animation de confirmation
+			const confirmationButton = document.getElementById('confirmationButton');
+			if (confirmationButton) {
+				confirmationButton.addEventListener('click', function(e) {
+					e.preventDefault();
+					this.value = 'Sending...';
+					setTimeout(() => {
+						this.value = 'Message Sent!';
+						this.classList.add('btn-success');
+						setTimeout(() => {
+							this.form.submit();
+						}, 1000);
+					}, 1500);
+				});
+			}
+		});
+	</script>
 
 	</body>
 </html>
